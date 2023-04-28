@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flash_chat/screens/login_screen.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
