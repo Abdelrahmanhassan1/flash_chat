@@ -29,6 +29,13 @@
             {
               "client_id": "909040654663-5lj27uiqoca25tqog33g6bd6cmm120ob.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "909040654663-rclo24e9km9phuegmq30l1s6rfaotqeb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flashChat"
+              }
             }
           ]
         }
