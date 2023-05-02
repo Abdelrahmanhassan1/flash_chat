@@ -6,7 +6,7 @@ import 'package:flash_chat/constants.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-// import 'package:alert/alert.dart';
+import 'package:cool_alert/cool_alert.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -91,8 +91,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       showSpinner = false;
                     });
                   } catch (e) {
-                    print("Error");
-                    // Alert(message: "Invalid email or password").show();
+                    CoolAlert.show(
+                      context: context,
+                      type: CoolAlertType.error,
+                      title: "Error",
+                      titleTextStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                      ),
+                      text: "Invalid email or password",
+                      textTextStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    );
+
+                    setState(() {
+                      showSpinner = false;
+                    });
                   }
                 },
               ),

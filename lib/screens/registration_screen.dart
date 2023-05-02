@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:cool_alert/cool_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/UI/rounded_button.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         showSpinner = false;
                       });
                     } catch (e) {
-                      print(e);
+                      CoolAlert.show(
+                          context: context,
+                          type: CoolAlertType.error,
+                          title: "Error",
+                          text: e.toString(),
+                          onConfirmBtnTap: () {
+                            Navigator.pop(context);
+                          });
                     }
                   },
                   btnColor: Colors.blueAccent),
