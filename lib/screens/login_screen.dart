@@ -6,6 +6,7 @@ import 'package:flash_chat/constants.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+// import 'package:alert/alert.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -34,11 +35,13 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Hero(
-                tag: "logo",
-                child: SizedBox(
-                  height: 200.0,
-                  child: Image.asset('images/logo.png'),
+              Flexible(
+                child: Hero(
+                  tag: "logo",
+                  child: SizedBox(
+                    height: 200.0,
+                    child: Image.asset('appImages/logo.png'),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -80,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   try {
                     final user = await _auth.signInWithEmailAndPassword(
                         email: email, password: password);
+
                     if (user != null) {
                       Navigator.pushNamed(context, ChatScreen.id);
                     }
@@ -87,7 +91,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       showSpinner = false;
                     });
                   } catch (e) {
-                    print(e);
+                    print("Error");
+                    // Alert(message: "Invalid email or password").show();
                   }
                 },
               ),
